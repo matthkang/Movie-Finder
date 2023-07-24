@@ -5,13 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
     <title>Document</title>
 </head>
 
 <body>
     <h1 class="text-3xl font-bold underline">
         Hello world!
+        <iframe width="100%" height="600px" class="youtubeVideo"></iframe>
     </h1>
 </body>
+
+<script>
+    /**
+     * Sample JavaScript code for youtube.videos.list
+     * See instructions for running APIs Explorer code samples locally:
+     * https://developers.google.com/explorer-help/code-samples#javascript
+     */
+
+    const keyword = "anne frank trailer";
+    const YOUTUBE_API_KEY = "AIzaSyC4D0ALMAzkDBW0LjsMJddRh-mTpyhkNYM";
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${keyword}&key=${YOUTUBE_API_KEY}`;
+    // console.log(url);
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            //console.log(data.items[0].id.videoId);
+            document.querySelector(".youtubeVideo").src = `https://www.youtube.com/embed/${data.items[0].id.videoId}`;
+        });
+
+</script>
+<button onclick="loadClient()">load</button>
+<button onclick="execute()">execute</button>
+
 
 </html>
