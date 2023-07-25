@@ -1,6 +1,6 @@
 
 function fetchMovieData() {
-    const url = 'https://streaming-availability.p.rapidapi.com/v2/search/basic?country=us&services=netflix%2Cprime.buy%2Chulu.addon.hbo%2Cpeacock.free&output_language=en&show_type=movie&genre=18&show_original_language=en&keyword=zombie';
+    const url = 'https://streaming-availability.p.rapidapi.com/v2/search/basic?country=us&services=netflix%2Cprime.buy%2Chulu.addon.hbo%2Cpeacock.free&output_language=en&show_type=movie&genre=18&show_original_language=en&keyword=superhero';
     const options = {
         method: 'GET',
         headers: {
@@ -9,20 +9,22 @@ function fetchMovieData() {
         }
     };
 
-        fetch(url, options)
+    fetch(url, options)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
-            const movieInfo = {
-                title: data.result.title,
-                poster: data.result.poster,
-                overview: data.result.overview,
-                youtube: data.result.youtubeTrailerVideoLink,
-                country: data.result.country
-        
+            for (let i = 0; i < data.result.length; i++) {
+                const movie = data.result[i];
+                const movieInfo = {
+                    title: movie.title,
+                    poster: movie.poster,
+                    overview: movie.overview,
+                    youtube: movie.youtubeTrailerVideoLink,
+                    country: movie.country
+
+                }
+                console.log(movieInfo);
+                // Do other operations with the data here
             }
-            console.log(movieInfo)
-            // Do other operations with the data here
         })
         .catch((error) => {
             console.error('Error fetching movie data:', error);
@@ -49,6 +51,6 @@ function fetchYoutubeData() {
 
 function searchMovie(event) {
     event.preventDefault();
-   
+
 }
 fetchMovieData();
