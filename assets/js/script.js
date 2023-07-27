@@ -55,4 +55,11 @@ function searchMovie(event) {
     event.preventDefault();
 
 }
+
+var homeButton = document.getElementById('home');
+
+homeButton.addEventListener("click", function () {
+    location.reload
+});
+
 fetchMovieData();

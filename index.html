@@ -11,7 +11,10 @@
 
 <body>
   <nav class="flex justify-between px-20 py-10 items-center bg-white">
-    <h1 class="text-xl text-gray-800 font-bold">Movie-Finder</h1>
+    <a href="./index.html">
+        <button class="text-xl text-gray-800 font-bold" id="home">Movie-Finder</button>
+    </a>
+   
       <div class="flex items-center">
             
         <div class="flex items-center">
@@ -21,9 +24,11 @@
             <input class="ml-2 outline-none bg-transparent font-" type="text" name="search" id="search" placeholder="Search..." />
         </div>
 
-            <ul class="flex items-center space-x-6">
+            <ul class="flex items-center space-x-6">   
                 <button class="font-semibold text-gray-700">Home</button>
-                <button class="font-semibold text-gray-700">About Us</button>
+                <a href="./about.html">
+                    <button class="font-semibold text-gray-700">About Us</button>
+                </a>
                 <li>
                     <button>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -103,7 +108,11 @@
         </select>
     </section>
 
-    <button>SEARCH</button>
+    <a href="./results.html">
+        <button id="search">SEARCH</button>
+    </a>
+
+    <script src="./assets/js/script.js"></script>
     
 </body>
 
