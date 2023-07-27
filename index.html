@@ -10,16 +10,16 @@
 </head>
 
 <body>
-    <nav class="flex justify-between px-20 py-10 items-center bg-white">
-        <h1 class="text-xl text-gray-800 font-bold">Movie-Finder</h1>
-        <div class="flex items-center">
+  <nav class="flex justify-between px-20 py-10 items-center bg-white">
+    <h1 class="text-xl text-gray-800 font-bold">Movie-Finder</h1>
+      <div class="flex items-center">
             
-            <div class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 pt-0.5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                <input class="ml-2 outline-none bg-transparent font-" type="text" name="search" id="search" placeholder="Search..." />
-            </div>
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 pt-0.5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input class="ml-2 outline-none bg-transparent font-" type="text" name="search" id="search" placeholder="Search..." />
+        </div>
 
             <ul class="flex items-center space-x-6">
                 <button class="font-semibold text-gray-700">Home</button>
@@ -34,6 +34,77 @@
             </ul>
         </div>
     </nav>
+  
+    <h2>Movie Selection Filter</h2>
+    <section>
+        <h2>Genre</h2>
+        <select>
+            <option>Unselcted</option>
+            <option>Biography</option>
+            <option>Film Noir</option>
+            <option>Game Show</option>
+            <option>Musical</option>
+            <option>Sport</option>
+            <option>Adult</option>
+            <option>Adventure</option>
+            <option>Fantasy</option>
+            <option>Animation</option>
+            <option>Drama</option>
+            <option>Horror</option>
+            <option>Action</option>
+            <option>Comedy</option>
+            <option>History</option>
+            <option>Western</option>
+            <option>Thriller</option>
+            <option>Crime</option>
+            <option>Documentary</option>
+            <option>Science Fiction</option>
+            <option>Mystery</option>
+            <option>Music</option>
+            <option>Romance</option>
+            <option>Family</option>
+            <option>War</option>
+            <option>News</option>
+            <option>Reality</option>
+            <option>Talk Show</option>
+        </select>
+    </section>
+
+    <section>
+        <h2>Do you prefer movies with a certain actor/actress in the cast? If no then leave this section blank.</h2>
+        <textarea>
+
+        </textarea>
+    </section>
+
+    <section>
+        <h2>What rating would you like the movie to be?</h2>
+        <ul>
+            <button>All Ratings</button>
+            <button>g</button>
+            <button>pg</button>
+            <button>pg-13</button>
+            <button>R</button>
+        </ul>
+    </section>
+
+    <section>
+        <h2>What streaming service would you like to watch on?</h2>
+        <select>
+            <option>Unselected</option>
+            <option>apple</option>
+            <option>disney</option>
+            <option>hbo</option>
+            <option>hulu</option>
+            <option>netflix</option>
+            <option>paramount</option>
+            <option>peacock</option>
+            <option>prime</option>
+        </select>
+    </section>
+
+    <button>SEARCH</button>
+    
 </body>
 
 </html>
