@@ -12,6 +12,7 @@ function fetchMovieData() {
     fetch(url, options)
         .then((response) => response.json())
         .then((data) => {
+            console.log(data)
             for (let i = 0; i < data.result.length; i++) {
                 const movie = data.result[i];
                 const movieInfo = {
@@ -23,6 +24,7 @@ function fetchMovieData() {
 
                 }
                 console.log(movieInfo);
+                
                 // Do other operations with the data here
             }
         })
