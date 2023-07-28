@@ -36,6 +36,7 @@ function fetchMovieData() {
                     cast: movie.cast,
                     rating: movie.advisedMinimumAudienceAge,
                     description: movie.overview,
+                    services: movie.streamingInfo,
                 }
                 console.log(movieInfo);
                 movieData.push(movieInfo);
@@ -79,10 +80,10 @@ var populateResults = function() {
     $("#movieResults").empty();
     for (var i = 0; i < moviesArr.length; i++){
         var movieObj = moviesArr[i];
-        var imgUrl = movieObj.poster[92];
+        var imgUrl = movieObj.poster.original;
         var title = movieObj.title;
         var cast = movieObj.cast;
-        var services = movieObj.streamingInfo;
+        //var services = movieObj.services;
         var rating = movieObj.rating;
         var country = movieObj.country;
         var lang = movieObj.language;
@@ -95,17 +96,17 @@ var populateResults = function() {
                 class="h-full w-full object-cover rounded-lg">
             </div>
 
-            <!--Movie Title-->
-            <h1 class="w-56 h-6 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700 text-center movieTitle"> ${title} </h1>
-            <!--Movie Description-->
-            <p class="w-56 h-6 mt-4 movieDescription"> ${desc} </p>
-            <!--Movie Actors/Actresses-->
-            <p class="w-24 h-2 mt-4 movieCast"> ${cast} </p>
-            <!--Movie Services-->
-            <p class="w-24 h-2 mt-4 movieServices"> ${services} </p>
-            <!--Movie Ratings-->
+
+            <h1 class="w-100 h-6 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700 text-center movieTitle"> ${title} </h1>
+
+            <p class="w-100 h-24 mt-4 movieDescription overflow-auto clamp-3"> ${desc} </p>
+
+            <p class="w-100 h-2 mt-4 movieCast"> ${cast[0]} </p>
+
+            <p class="w-24 h-2 mt-4 movieServices"></p>
+
             <p class="w-24 h-2 mt-4 movieRatings"> ${rating} </p>
-            <!--Movie Language-->
+
             <p class="w-24 h-2 mt-4 movieLanguage"> ${lang} </p>
         `)
         $('#movieResults').append(movie);
