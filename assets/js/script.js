@@ -1,13 +1,14 @@
 
 var services = document.getElementById('service')
-var country = document.getElementById('country')
 var genre = document.getElementById('genre')
 var language = document.getElementById('language')
 var keyword = document.getElementById('keyword')
 
 
 function fetchMovieData() {
-    const url = `https://streaming-availability.p.rapidapi.com/v2/search/basic?country=${country.value}&services=${services.value}&output_language=en&show_type=movie&genre=${genre.value}&show_original_language=${language.value}&keyword=${keyword.value}`;
+    console.log("service: " + services.value + " country: " + country.value + " genre: " + genre.value + " language: " + language.value + " keyword: " + keyword.value);
+    const url = `https://streaming-availability.p.rapidapi.com/v2/search/basic?country=us&services=${services.value}&output_language=en&show_type=movie&genre=${genre.value}&show_original_language=${language.value}&keyword=${keyword.value}`;
+    console.log(url);
     const options = {
         method: 'GET',
         headers: {
@@ -16,26 +17,34 @@ function fetchMovieData() {
         }
     };
 
-    console.log(services.value + country.value + genre.value + language.value + keyword.value)
+    
 
     fetch(url, options)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
+            console.log(data);
+            var movieData = [];
             for (let i = 0; i < data.result.length; i++) {
                 const movie = data.result[i];
                 const movieInfo = {
                     title: movie.title,
-                    poster: movie.poster,
+                    poster: movie.posterURLs,
                     overview: movie.overview,
                     youtube: movie.youtubeTrailerVideoLink,
-                    country: movie.country
+                    country: movie.countries,
+                    language: movie.originalLanguage
 
                 }
                 console.log(movieInfo);
-                
+                movieData.push(movieInfo);
                 // Do other operations with the data here
-            }
+            } 
+            console.log(movieData);
+            return movieData;
+        }) 
+        .then((data) => {
+            document.location.replace("./results.html");
+            console.log(data);
         })
         .catch((error) => {
             console.error('Error fetching movie data:', error);
