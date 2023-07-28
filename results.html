@@ -27,6 +27,7 @@
           placeholder="Search..." />
       </div>
 
+
       <ul class="flex items-center space-x-6">
         <a href="./index.html">
           <button class="font-semibold text-gray-700">Home</button>
@@ -49,167 +50,14 @@
 
   <!-- component -->
   <section class="bg-white dark:bg-gray-900">
-    <div class="container px-6 py-10 mx-auto animate-pulse">
-      <h1 class="w-24 h-6 mx-auto bg-gray-200 rounded-lg dark:bg-gray-700 text-center text-white">RESULTS:</h1>
-
-      <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
+    <div class="container px-6 py-10 mx-auto">
+      <h1 class="w-48 h-2 mx-auto bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
 
 
-        <div class="w-full text-white movieData">
-          <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600 movieImage">
-            <img src="https://image.tmdb.org/t/p/original/8RW2runSEc34IwKN2D1aPcJd2UL.jpg" alt="Movie Poster"
-              class="h-full w-full object-cover rounded-lg">
-          </div>
 
 
-          <!--Movie Title-->
-          <h1 class="w-56 h-6 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700 text-center movieTitle"> Batman </h1>
-          <!--Movie Description-->
-          <p class="w-56 h-6 mt-4 movieDescription"> Depressed kid </p>
-          <!--Movie Actors/Actresses-->
-          <p class="w-24 h-2 mt-4 movieCast"> Bruce Wayne </p>
-          <!--Movie Services-->
-          <p class="w-24 h-2 mt-4 movieServices"> Netlix </p>
-          <!--Movie Ratings-->
-          <p class="w-24 h-2 mt-4 movieRatings"> R </p>
-          <!--Movie Language-->
-          <p class="w-24 h-2 mt-4 movieLanguage"> English </p>
-        </div>
+      <div id="movieResults" class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3"></div>
 
-        <div class="w-full text-white movieData">
-          <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600 movieImage"> <img src="" alt="Movie Poster"
-              class="h-full w-full object-cover rounded-lg">
-          </div>
-
-
-          <!--Movie Title-->
-          <h1 class="w-56 h-6 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700 text-center movieTitle"> </h1>
-          <!--Movie Description-->
-          <p class="w-56 h-6 mt-4 movieDescription"> </p>
-          <!--Movie Actors/Actresses-->
-          <p class="w-24 h-2 mt-4 movieCast"> </p>
-          <!--Movie Services-->
-          <p class="w-24 h-2 mt-4 movieServices"> </p>
-          <!--Movie Ratings-->
-          <p class="w-24 h-2 mt-4 movieRatings"> </p>
-          <!--Movie Language-->
-          <p class="w-24 h-2 mt-4 movieLanguage"> </p>
-        </div>
-
-        <div class="w-full text-white movieData">
-          <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600 movieImage"> <img src="" alt="Movie Poster"
-              class="h-full w-full object-cover rounded-lg">
-          </div>
-
-          <!--Movie Title-->
-          <h1 class="w-56 h-6 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700 text-center movieTitle"> </h1>
-          <!--Movie Description-->
-          <p class="w-56 h-6 mt-4 movieDescription"> </p>
-          <!--Movie Actors/Actresses-->
-          <p class="w-24 h-2 mt-4 movieCast"> </p>
-          <!--Movie Services-->
-          <p class="w-24 h-2 mt-4 movieServices"> </p>
-          <!--Movie Ratings-->
-          <p class="w-24 h-2 mt-4 movieRatings"> </p>
-          <!--Movie Language-->
-          <p class="w-24 h-2 mt-4 movieLanguage"> </p>
-        </div>
-
-        <div class="w-full  text-white movieData">
-          <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600 movieImage"> <img src="" alt="Movie Poster"
-              class="h-full w-full object-cover rounded-lg">
-          </div>
-
-          <!--Movie Title-->
-          <h1 class="w-56 h-6 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700 text-center movieTitle"> </h1>
-          <!--Movie Description-->
-          <p class="w-56 h-6 mt-4 movieDescription"> </p>
-          <!--Movie Actors/Actresses-->
-          <p class="w-24 h-2 mt-4 movieCast"> </p>
-          <!--Movie Services-->
-          <p class="w-24 h-2 mt-4 movieServices"> </p>
-          <!--Movie Ratings-->
-          <p class="w-24 h-2 mt-4 movieRatings"> </p>
-          <!--Movie Language-->
-          <p class="w-24 h-2 mt-4 movieLanguage"> </p>
-        </div>
-
-        <div class="w-full text-white movieData">
-          <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600 movieImage"> <img src="" alt="Movie Poster"
-              class="h-full w-full object-cover rounded-lg">
-          </div>
-
-          <!--Movie Title-->
-          <h1 class="w-56 h-6 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700 text-center movieTitle"> </h1>
-          <!--Movie Description-->
-          <p class="w-56 h-6 mt-4 movieDescription"> </p>
-          <!--Movie Actors/Actresses-->
-          <p class="w-24 h-2 mt-4 movieCast">  </p>
-          <!--Movie Services-->
-          <p class="w-24 h-2 mt-4 movieServices">  </p>
-          <!--Movie Ratings-->
-          <p class="w-24 h-2 mt-4 movieRatings">  </p>
-          <!--Movie Language-->
-          <p class="w-24 h-2 mt-4 movieLanguage"> </p>
-        </div>
-
-        <div class="w-full text-white movieData">
-          <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600 movieImage"> <img src="" alt="Movie Poster"
-              class="h-full w-full object-cover rounded-lg">
-          </div>
-
-          <!--Movie Title-->
-          <h1 class="w-56 h-6 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700 text-center movieTitle"></h1>
-          <!--Movie Description-->
-          <p class="w-56 h-6 mt-4 movieDescription"></p>
-          <!--Movie Actors/Actresses-->
-          <p class="w-24 h-2 mt-4 movieCast"></p>
-          <!--Movie Services-->
-          <p class="w-24 h-2 mt-4 movieServices"></p>
-          <!--Movie Ratings-->
-          <p class="w-24 h-2 mt-4 movieRatings"></p>
-          <!--Movie Language-->
-          <p class="w-24 h-2 mt-4 movieLanguage"></p>
-        </div>
-
-        <div class="w-full  text-white movieData">
-          <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600 movieImage"> <img src="" alt="Movie Poster"
-              class="h-full w-full object-cover rounded-lg">
-          </div>
-
-          <!--Movie Title-->
-          <h1 class="w-56 h-6 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700 text-center movieTitle"></h1>
-          <!--Movie Description-->
-          <p class="w-56 h-6 mt-4 movieDescription"></p>
-          <!--Movie Actors/Actresses-->
-          <p class="w-24 h-2 mt-4 movieCast"></p>
-          <!--Movie Services-->
-          <p class="w-24 h-2 mt-4 movieServices"> </p>
-          <!--Movie Ratings-->
-          <p class="w-24 h-2 mt-4 movieRatings"></p>
-          <!--Movie Language-->
-          <p class="w-24 h-2 mt-4 movieLanguage"></p>
-        </div>
-
-        <div class="w-full text-white movieData">
-          <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600 movieImage"> <img src="" alt="Movie Poster"
-              class="h-full w-full object-cover rounded-lg">
-          </div>
-          <!--Movie Title-->
-          <h1 class="w-56 h-6 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700 text-center movieTitle"> </h1>
-          <!--Movie Description-->
-          <p class="w-56 h-6 mt-4 movieDescription"></p>
-          <!--Movie Actors/Actresses-->
-          <p class="w-24 h-2 mt-4 movieCast"> </p>
-          <!--Movie Services-->
-          <p class="w-24 h-2 mt-4 movieServices"> </p>
-          <!--Movie Ratings-->
-          <p class="w-24 h-2 mt-4 movieRatings"></p>
-          <!--Movie Language-->
-          <p class="w-24 h-2 mt-4 movieLanguage"> </p>
-        </div>
-      </div>
-    </div>
     </div>
   </section>
 
@@ -273,6 +121,7 @@
     -->
 
 </body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="./assets/js/script.js"></script>
 
 </html>
