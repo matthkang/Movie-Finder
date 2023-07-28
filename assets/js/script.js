@@ -62,4 +62,4 @@ homeButton.addEventListener("click", function () {
     location.reload
 });
 
-fetchMovieData();
+//fetchMovieData();
