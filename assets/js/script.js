@@ -63,3 +63,28 @@ homeButton.addEventListener("click", function () {
 });
 
 //fetchMovieData();
+//local storage skeleton - subject to change
+function searchHistory (data) {
+    const titles = data.result.map(movie => movie.title)
+    var historyPageEl = document.querySelector(/*html*/); //input.value of user but title only
+    var historyPage = localStorage.getItem(/*html*/); // storage for
+    if(!historyPage) {
+        historyPage = [];
+    } else {
+        historyPage = JSON.parse(historyPage)
+    }
+    titles.forEach(title => {
+        if (!historyPage.includes(title)) {
+            historyPage.push(title);
+        }
+    });
+    localStorage.setItem(/*html*/, JSON.stringify(historyPage))
+
+    titles.forEach(title => {
+        var liDiv = document.createElement("li");
+        liDiv.textContent = title;
+        // liDiv.classList.add("") if you want to add CSS class to the list item
+
+        historyPageEl.appendChild(liDiv);
+    });
+}
