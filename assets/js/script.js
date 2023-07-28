@@ -6,7 +6,7 @@ var keyword = document.getElementById('keyword')
 
 
 function fetchMovieData() {
-    console.log("service: " + services.value + " country: " + country.value + " genre: " + genre.value + " language: " + language.value + " keyword: " + keyword.value);
+    console.log("service: " + services.value + " genre: " + genre.value + " language: " + language.value + " keyword: " + keyword.value);
     const url = `https://streaming-availability.p.rapidapi.com/v2/search/basic?country=us&services=${services.value}&output_language=en&show_type=movie&genre=${genre.value}&show_original_language=${language.value}&keyword=${keyword.value}`;
     console.log(url);
     const options = {
@@ -32,18 +32,22 @@ function fetchMovieData() {
                     overview: movie.overview,
                     youtube: movie.youtubeTrailerVideoLink,
                     country: movie.countries,
-                    language: movie.originalLanguage
-
+                    language: movie.originalLanguage,
+                    cast: movie.cast,
+                    rating: movie.advisedMinimumAudienceAge,
+                    description: movie.overview,
                 }
                 console.log(movieInfo);
                 movieData.push(movieInfo);
                 // Do other operations with the data here
             } 
+            localStorage.setItem("moviesHistory", JSON.stringify(movieData));
             console.log(movieData);
             return movieData;
         }) 
         .then((data) => {
             document.location.replace("./results.html");
+            populateResults();
             console.log(data);
         })
         .catch((error) => {
@@ -68,6 +72,46 @@ function fetchYoutubeData() {
             document.querySelector(".youtubeVideo").src = `https://www.youtube.com/embed/${data.items[0].id.videoId}`;
         });
 }
+
+var populateResults = function() {
+    var moviesArr = JSON.parse(localStorage.getItem("moviesHistory"));
+
+    $("#movieResults").empty();
+    for (var i = 0; i < moviesArr.length; i++){
+        var movieObj = moviesArr[i];
+        var imgUrl = movieObj.poster[92];
+        var title = movieObj.title;
+        var cast = movieObj.cast;
+        var services = movieObj.streamingInfo;
+        var rating = movieObj.rating;
+        var country = movieObj.country;
+        var lang = movieObj.language;
+        var desc = movieObj.description;
+
+        var movie = $(`
+            <div class="w-full movieData">
+            <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600 movieImage">
+                <img src="${imgUrl}" alt="Movie Poster"
+                class="h-full w-full object-cover rounded-lg">
+            </div>
+
+            <!--Movie Title-->
+            <h1 class="w-56 h-6 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700 text-center movieTitle"> ${title} </h1>
+            <!--Movie Description-->
+            <p class="w-56 h-6 mt-4 movieDescription"> ${desc} </p>
+            <!--Movie Actors/Actresses-->
+            <p class="w-24 h-2 mt-4 movieCast"> ${cast} </p>
+            <!--Movie Services-->
+            <p class="w-24 h-2 mt-4 movieServices"> ${services} </p>
+            <!--Movie Ratings-->
+            <p class="w-24 h-2 mt-4 movieRatings"> ${rating} </p>
+            <!--Movie Language-->
+            <p class="w-24 h-2 mt-4 movieLanguage"> ${lang} </p>
+        `)
+        $('#movieResults').append(movie);
+    }
+}
+populateResults();
 
 function searchMovie(event) {
     event.preventDefault();
