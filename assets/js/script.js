@@ -1,13 +1,22 @@
 
+var services = document.getElementById('service')
+var country = document.getElementById('country')
+var genre = document.getElementById('genre')
+var language = document.getElementById('language')
+var keyword = document.getElementById('keyword')
+
+
 function fetchMovieData() {
-    const url = 'https://streaming-availability.p.rapidapi.com/v2/search/basic?country=us&services=netflix%2Cprime.buy%2Chulu.addon.hbo%2Cpeacock.free&output_language=en&show_type=movie&genre=18&show_original_language=en&keyword=superhero';
+    const url = `https://streaming-availability.p.rapidapi.com/v2/search/basic?country=${country.value}&services=${services.value}&output_language=en&show_type=movie&genre=${genre.value}&show_original_language=${language.value}&keyword=${keyword.value}`;
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'a041739bfbmsh77bc9ee6c6dcdb3p1bb6e7jsn89ca0a0962df',
+            'X-RapidAPI-Key': 'f527281d89mshbcaebc5ff829f0dp1e0856jsn130bd59d1ec1',
             'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
         }
     };
+
+    console.log(services.value + country.value + genre.value + language.value + keyword.value)
 
     fetch(url, options)
         .then((response) => response.json())
@@ -61,5 +70,9 @@ var homeButton = document.getElementById('home');
 homeButton.addEventListener("click", function () {
     location.reload
 });
+
+var submitBtn = document.getElementById('submitBtn');
+
+submitBtn.addEventListener('click', fetchMovieData)
 
 //fetchMovieData();
