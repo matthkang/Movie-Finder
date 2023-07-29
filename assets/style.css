@@ -1,3 +1,6 @@
-.hide{
+body {
+    background-image: url("https://source.unsplash.com/1600x900/?movies");
+    background-size: cover;
+}.hide{
     display: none
 }
