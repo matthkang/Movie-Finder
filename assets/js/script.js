@@ -119,59 +119,6 @@ if (submitBtn){
     submitBtn.addEventListener('click', fetchMovieData)
 }
 
-
-// Country box
-
-var clearCountryInput=document.querySelector ("#clearCountryInput");
-var countryInput=document.querySelector ("#country")
-
-clearCountryInput.addEventListener("click", function(event){
-    console.log ("click")
-    event.preventDefault ()
-    countryInput.value=""
-});
-
-
-var countryButton=document.querySelector ("#countryButton")
-var countryEl= document.querySelector("#countryListElements")
-countryButton.addEventListener ("click", function (event){
-    console.log ("click")
-    countryEl.classList.remove ("hide")
-    event.preventDefault ()
-   
-    var countryList= ""
-    countryList+= `
-    <option>Australia</option>
-    <option>Brazil</option>
-    <option>Canada</option>
-    <option>Denmark</option>
-    <option>Ecuador</option>
-    <option>France/option>
-    <option>Germany</option>
-    <option>Hong Kong</option>
-    <option>India</option>
-    <option>Japan</option>
-    <option>Lithuania</option>
-    <option>Mexico</option>
-    <option>Norway</option>
-    <option>Peru/option>
-    <option>Romania</option>
-    <option>Spain</option>
-    `;
-    countryEl.innerHTML=countryList
-
-});
-
-countryEl.addEventListener("click", function (event){
-    var element=event.target
-    if (element.matches ("option")){
-        countryInput.value=element.textContent
-    }
-    countryEl.classList.add ("hide")
-    countryEl.innerHTML=""
-
-})
-
 // Language box
 
 var clearLanguageInput=document.querySelector ("#clearLanguageInput");
