@@ -48,7 +48,6 @@ function fetchMovieData() {
         }) 
         .then((data) => {
             document.location.replace("./results.html");
-            populateResults();
             console.log(data);
         })
         .catch((error) => {
@@ -114,19 +113,8 @@ var populateResults = function() {
 }
 populateResults();
 
-function searchMovie(event) {
-    event.preventDefault();
-
-}
-
-var homeButton = document.getElementById('home');
-
-homeButton.addEventListener("click", function () {
-    location.reload
-});
-
 var submitBtn = document.getElementById('submitBtn');
 
-submitBtn.addEventListener('click', fetchMovieData)
-
-//fetchMovieData();
+if (submitBtn){
+    submitBtn.addEventListener('click', fetchMovieData)
+}
