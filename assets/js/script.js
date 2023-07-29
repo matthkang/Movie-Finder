@@ -89,24 +89,24 @@ var populateResults = function() {
         var desc = movieObj.description;
 
         var movie = $(`
-            <div class="w-full movieData">
+            <div class="w-full text-white movieData">
             <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600 movieImage">
                 <img src="${imgUrl}" alt="Movie Poster"
                 class="h-full w-full object-cover rounded-lg">
             </div>
 
 
-            <h1 class="w-100 h-6 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700 text-center movieTitle"> ${title} </h1>
+            <h1 class="w-100 p-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700 text-center"> ${title} </h1>
 
-            <p class="w-100 h-24 mt-4 movieDescription overflow-auto clamp-3"> ${desc} </p>
+            <p class="w-100 p-2 h-24 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700  overflow-auto clamp-3"> <strong>Description:</strong> ${desc} </p>
 
-            <p class="w-100 h-2 mt-4 movieCast"> ${cast[0]} </p>
+            <p class="w-100 p-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"> <strong>Cast:</strong>  ${cast.join(', ')} </p>
 
-            <p class="w-24 h-2 mt-4 movieServices"></p>
+            <p class="w-24 p-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
 
-            <p class="w-24 h-2 mt-4 movieRatings"> ${rating} </p>
+            <p class=" mt-4  p-2 bg-gray-200 rounded-lg dark:bg-gray-700"><strong>Rating:</strong> Rated - ${rating} </p>
 
-            <p class="w-24 h-2 mt-4 movieLanguage"> ${lang} </p>
+            <p class=" mt-4  p-2 bg-gray-200 rounded-lg dark:bg-gray-700"><strong>Language:</strong> ${lang} </p>
         `)
         $('#movieResults').append(movie);
     }
