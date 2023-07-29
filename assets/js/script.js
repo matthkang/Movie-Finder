@@ -89,7 +89,7 @@ var populateResults = function() {
         var desc = movieObj.description;
 
         var movie = $(`
-            <div class="w-full text-white movieData">
+            <div class="w-full dark:text-white movieData">
             <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600 movieImage">
                 <img src="${imgUrl}" alt="Movie Poster"
                 class="h-full w-full object-cover rounded-lg">
