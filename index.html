@@ -12,21 +12,24 @@
 </head>
 
 <body>
-  <nav class="flex justify-between px-20 py-10 items-center bg-white">
-    <a href="./index.html">
-        <button class="text-xl text-gray-800 font-bold" id="home">Movie-Finder</button>
-    </a>
-   
-      <div class="flex items-center">
-            
-        <div class="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 pt-0.5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            <input class="ml-2 outline-none bg-transparent font-" type="text" name="search" id="search" placeholder="Search..." />
-        </div>
+    <nav class="flex justify-between px-20 py-10 items-center bg-white">
+        <a href="./index.html">
+            <button class="text-xl text-gray-800 font-bold" id="home">Movie-Finder</button>
+        </a>
 
-            <ul class="flex items-center space-x-6">  
+        <div class="flex items-center">
+
+            <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 pt-0.5 text-gray-600" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input class="ml-2 outline-none bg-transparent font-" type="text" name="search" id="search"
+                    placeholder="Search..." />
+            </div>
+
+            <ul class="flex items-center space-x-6">
                 <a href="./index.html">
                     <button class="font-semibold text-gray-700">Home</button>
                 </a>
@@ -35,157 +38,150 @@
                 </a>
                 <li>
                     <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
                     </button>
                 </li>
             </ul>
         </div>
     </nav>
-  
-<!-- component -->
-<div class="min-h-screen p-6 flex items-center justify-center ">
-    <div class="container max-w-screen-lg mx-auto">
-      <div>
-        <h2 class="font-semibold text-2xl text-white-600 bg-white rounded shadow bg-opacity-0">Movie Selection Feature</h2>
-        <p class="text-gray-500 mb-6"></p>
-  
-        <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6 bg-opacity-75">
-          <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-            <div class="text-gray-600">
-              <p class="font-medium text-lg">What would you like to watch?</p>
-              <p>Please fill out the following parameters...</p>
-            </div>
-  
-            <div class="lg:col-span-2">
-              <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-            
-                <div class="md:col-span-5">
-                  <label for="keyword">Keyword</label>
-                  <input type="text" name="keyword" id="keyword" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                </div>
-  
-                <div class="md:col-span-3">
-                  <label for="service">Services</label>
-                  
-                  <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
 
-                    <input name="service" id="service" placeholder="Service" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
-                    <button id="clearServiceInput" tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                      <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                      </svg>
-                    </button>
-                    <button id="serviceButton" tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
-                      <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                     
-                    </button>
-                    <div name="" id="serviceListElements" class="hide"style="background-color: #f8f9fa; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); padding: 1rem; border-radius: 3px;"></div>
-                  </div>
-                </div>
+    <!-- component -->
+    <div class="min-h-screen p-6 flex items-center justify-center ">
+        <div class="container max-w-screen-lg mx-auto">
+            <div>
+                <h2 class="font-semibold text-2xl text-white-600 bg-white rounded shadow bg-opacity-0">Movie Selection
+                    Feature</h2>
+                <p class="text-gray-500 mb-6"></p>
 
-                <div class="md:col-span-2">
-                  <label for="service">Language</label>
-                  
-                  <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6 bg-opacity-75">
+                    <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+                        <div class="text-gray-600">
+                            <p class="font-medium text-lg">What would you like to watch?</p>
+                            <p>Please fill out the following parameters...</p>
+                        </div>
 
-                    <input name="language" id="language" placeholder="Language" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
-                    <button id="clearLanguageInput" tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                      <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                      </svg>
-                    </button>
-                    <button id="languageButton" tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
-                      <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                     
-                    </button>
-                    <div name="" id="languageListElements" class="hide"style="background-color: #f8f9fa; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); padding: 1rem; border-radius: 3px;"></div>
-                  </div>
-                </div>
-  
-                <div class="md:col-span-2">
-                  <label for="Genre">Genre</label>
-                  <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                    <input name="genre" id="genre" placeholder="Genre" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
-                    <button id="clearGenreInput" tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                      <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                      </svg>
-                    </button>
-                    <button id="genreButton" tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
-                      <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                     
-                    </button>
-                    <div name="" id="genreListElements" class="hide"style="background-color: #f8f9fa; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); padding: 1rem; border-radius: 3px;"></div>
-                  </div>
-                </div>
-                  </div>
-                </div>
-  
-                <!-- <div class="md:col-span-2">
-                  <label for="state">Country</label>
-                  <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                    <input name="country" id="country" placeholder="Country" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
-                    <button id="clearCountryInput" tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                      <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                      </svg>
-                    </button>
-                    <button id="countryButton" tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
-                      <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                     
-                    </button>
-                    <div name="" id="countryListElements" class="hide"style="background-color: #f8f9fa; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); padding: 1rem; border-radius: 3px;"></div>
-                  </div>
-                </div> -->
-  
-                <div class="md:col-span-5 text-right">
-                    <div class="inline-flex items-end">
-                      <button id="submitBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                        <div class="lg:col-span-2">
+                            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+
+                                <div class="md:col-span-5">
+                                    <label for="keyword">Keyword</label>
+                                    <input type="text" name="keyword" id="keyword"
+                                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value=""
+                                        placeholder="" />
+                                </div>
+
+                                <div class="md:col-span-3">
+                                    <label for="service">Services</label>
+
+                                    <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+
+                                        <input name="service" id="service" placeholder="Service"
+                                            class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent"
+                                            value="" />
+                                        <button id="clearServiceInput" tabindex="-1"
+                                            class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
+                                            <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                                            </svg>
+                                        </button>
+                                        <button id="serviceButton" tabindex="-1" for="show_more"
+                                            class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
+                                            <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <polyline points="18 15 12 9 6 15"></polyline>
+                                            </svg>
+
+                                        </button>
+                                        <div name="" id="serviceListElements" class="hide"
+                                            style="background-color: #f8f9fa; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); padding: 1rem; border-radius: 3px;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="md:col-span-2">
+                                    <label for="service">Language</label>
+
+                                    <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+
+                                        <input name="language" id="language" placeholder="Language"
+                                            class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent"
+                                            value="" />
+                                        <button id="clearLanguageInput" tabindex="-1"
+                                            class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
+                                            <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                                            </svg>
+                                        </button>
+                                        <button id="languageButton" tabindex="-1" for="show_more"
+                                            class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
+                                            <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <polyline points="18 15 12 9 6 15"></polyline>
+                                            </svg>
+
+                                        </button>
+                                        <div name="" id="languageListElements" class="hide"
+                                            style="background-color: #f8f9fa; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); padding: 1rem; border-radius: 3px;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="md:col-span-2">
+                                    <label for="Genre">Genre</label>
+                                    <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                                        <input name="genre" id="genre" placeholder="Genre"
+                                            class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent"
+                                            value="" />
+                                        <button id="clearGenreInput" tabindex="-1"
+                                            class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
+                                            <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                                            </svg>
+                                        </button>
+                                        <button id="genreButton" tabindex="-1" for="show_more"
+                                            class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
+                                            <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <polyline points="18 15 12 9 6 15"></polyline>
+                                            </svg>
+
+                                        </button>
+                                        <div name="" id="genreListElements" class="hide"
+                                            style="background-color: #f8f9fa; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); padding: 1rem; border-radius: 3px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="md:col-span-5 text-right">
+                            <div class="inline-flex items-end">
+                                <button id="submitBtn"
+                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-  <!--
-                <div class="md:col-span-5">
-                  <div class="inline-flex items-center">
-                    <input type="checkbox" name="billing_same" id="billing_same" class="form-checkbox" />
-                    <label for="billing_same" class="ml-2">My billing address is different than above.</label>
-                  </div>
                 </div>
-  
-                <div class="md:col-span-2">
-                  <label for="soda">How many soda pops?</label>
-                  <div class="h-10 w-28 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                    <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-r border-gray-200 transition-all text-gray-500 hover:text-blue-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-2" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                      </svg>
-                    </button>
-                    <input name="soda" id="soda" placeholder="0" class="px-2 text-center appearance-none outline-none text-gray-800 w-full bg-transparent" value="0" />
-                    <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-500 hover:text-blue-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-2 fill-current" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-            -->
-                
-  
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-  
-      
     </div>
-  </div>
-<script src="./assets/js/script.js"></script>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
