@@ -63,3 +63,168 @@ homeButton.addEventListener("click", function () {
 });
 
 //fetchMovieData();
+
+
+// Country box
+
+var clearCountryInput=document.querySelector ("#clearCountryInput");
+var countryInput=document.querySelector ("#country")
+
+clearCountryInput.addEventListener("click", function(event){
+    console.log ("click")
+    event.preventDefault ()
+    countryInput.value=""
+});
+
+
+var countryButton=document.querySelector ("#countryButton")
+var countryEl= document.querySelector("#countryListElements")
+countryButton.addEventListener ("click", function (event){
+    console.log ("click")
+    countryEl.classList.remove ("hide")
+    event.preventDefault ()
+   
+    var countryList= ""
+    countryList+= `
+    <option>Australia</option>
+    <option>Brazil</option>
+    <option>Canada</option>
+    <option>Denmark</option>
+    <option>Ecuador</option>
+    <option>France/option>
+    <option>Germany</option>
+    <option>Hong Kong</option>
+    <option>India</option>
+    <option>Japan</option>
+    <option>Lithuania</option>
+    <option>Mexico</option>
+    <option>Norway</option>
+    <option>Peru/option>
+    <option>Romania</option>
+    <option>Spain</option>
+    `;
+    countryEl.innerHTML=countryList
+
+});
+
+countryEl.addEventListener("click", function (event){
+    var element=event.target
+    if (element.matches ("option")){
+        countryInput.value=element.textContent
+    }
+    countryEl.classList.add ("hide")
+    countryEl.innerHTML=""
+
+})
+
+// Language box
+
+var clearLanguageInput=document.querySelector ("#clearLanguageInput");
+var languageInput=document.querySelector ("#language")
+
+clearLanguageInput.addEventListener("click", function(event){
+    console.log ("click")
+    event.preventDefault ()
+    languageInput.value=""
+});
+
+
+var languageButton=document.querySelector ("#languageButton")
+var languageEl= document.querySelector("#languageListElements")
+languageButton.addEventListener ("click", function (event){
+    console.log ("click")
+    languageEl.classList.remove ("hide")
+    event.preventDefault ()
+   
+    var languageList= ""
+    languageList+= `
+    <option>Spanish</option>
+    `;
+    languageEl.innerHTML=languageList
+
+});
+
+languageEl.addEventListener("click", function (event){
+    var element=event.target
+    if (element.matches ("option")){
+        languageInput.value=element.textContent
+    }
+    languageEl.classList.add ("hide")
+    languageEl.innerHTML=""
+
+}) 
+
+
+// Genre box
+
+var clearGenreInput=document.querySelector ("#clearGenreInput");
+var genreInput=document.querySelector ("#genre")
+
+clearGenreInput.addEventListener("click", function(event){
+    console.log ("click")
+    event.preventDefault ()
+    genreInput.value=""
+});
+
+
+var genreButton=document.querySelector ("#genreButton")
+var genreEl= document.querySelector("#genreListElements")
+genreButton.addEventListener ("click", function (event){
+    console.log ("click")
+    genreEl.classList.remove ("hide")
+    event.preventDefault ()
+   
+    var genreList= ""
+    genreList+= `
+    <option>Romance</option>
+    `;
+    genreEl.innerHTML=genreList
+
+});
+
+genreEl.addEventListener("click", function (event){
+    var element=event.target
+    if (element.matches ("option")){
+        genreInput.value=element.textContent
+    }
+    genreEl.classList.add ("hide")
+    genreEl.innerHTML=""
+
+}) 
+
+// Service box
+
+var clearServiceInput=document.querySelector ("#clearServiceInput");
+var serviceInput=document.querySelector ("#service")
+
+clearServiceInput.addEventListener("click", function(event){
+    console.log ("click")
+    event.preventDefault ()
+    serviceInput.value=""
+});
+
+
+var serviceButton=document.querySelector ("#serviceButton")
+var serviceEl= document.querySelector("#serviceListElements")
+serviceButton.addEventListener ("click", function (event){
+    console.log ("click")
+    serviceEl.classList.remove ("hide")
+    event.preventDefault ()
+   
+    var serviceList= ""
+    serviceList+= `
+    <option>Netflix</option>
+    `;
+    serviceEl.innerHTML=serviceList
+
+});
+
+serviceEl.addEventListener("click", function (event){
+    var element=event.target
+    if (element.matches ("option")){
+        serviceInput.value=element.textContent
+    }
+    serviceEl.classList.add ("hide")
+    serviceEl.innerHTML=""
+
+}) 
