@@ -7,7 +7,7 @@ var keyword = document.getElementById('keyword')
 
 function fetchMovieData() {
     console.log("service: " + services.value + " genre: " + genre.value + " language: " + language.value + " keyword: " + keyword.value);
-    const url = `https://streaming-availability.p.rapidapi.com/v2/search/basic?country=us&services=${services.value}&output_language=en&show_type=movie&genre=${genre.value}&show_original_language=${language.value}&keyword=${keyword.value}`;
+    const url = `https://streaming-availability.p.rapidapi.com/v2/search/basic?country=us&services=${services.dataset.code}&output_language=en&show_type=movie&genre=${genre.dataset.code}&show_original_language=${language.dataset.code}&keyword=${keyword.value}`;
     console.log(url);
     const options = {
         method: 'GET',
@@ -16,8 +16,6 @@ function fetchMovieData() {
             'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
         }
     };
-
-    
 
     fetch(url, options)
         .then((response) => response.json())
@@ -141,7 +139,35 @@ if (languageButton){
        
         var languageList= ""
         languageList+= `
-        <option>Spanish</option>
+        <option value="ar">Arabic</option>
+        <option value="zh">Chinese</option>
+        <option value="cs">Czech</option>
+        <option value="da">Danish</option>
+        <option value="nl">Dutch</option>
+        <option value="en">English</option>
+        <option value="fi">Finnish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="el">Greek</option>
+        <option value="he">Hebrew</option>
+        <option value="hi">Hindi</option>
+        <option value="hu">Hungarian</option>
+        <option value="is">Icelandic</option>
+        <option value="id">Indonesian</option>
+        <option value="it">Italian</option>
+        <option value="ja">Japanese</option>
+        <option value="ko">Korean</option>
+        <option value="no">Norwegian</option>
+        <option value="pl">Polish</option>
+        <option value="pt">Portuguese</option>
+        <option value="ro">Romanian</option>
+        <option value="ru">Russian</option>
+        <option value="es">Spanish</option>
+        <option value="sw">Swahili</option>
+        <option value="sv">Swedish</option>
+        <option value="th">Thai</option>
+        <option value="tr">Turkish</option>
+        <option value="vi">Vietnamese</option>
         `;
         languageEl.innerHTML=languageList
     
@@ -153,6 +179,8 @@ if (languageEl){
         var element=event.target
         if (element.matches ("option")){
             languageInput.value=element.textContent
+            languageInput.setAttribute('data-code', element.value)
+            console.log(document.getElementById('language').dataset.code)
         }
         languageEl.classList.add ("hide")
         languageEl.innerHTML=""
@@ -182,7 +210,33 @@ if (genreButton){
        
         var genreList= ""
         genreList+= `
-        <option>Romance</option>
+        <option value="1">Biography</option>
+        <option value="2">Film Noir</option>
+        <option value="3">Game Show</option>
+        <option value="4">Musical</option>
+        <option value="5">Sport</option>
+        <option value="6">Short</option>
+        <option value="12">Adventure</option>
+        <option value="14">Fantasy</option>
+        <option value="16">Animation</option>
+        <option value="18">Drama</option>
+        <option value="27">Horror</option>
+        <option value="28">Action</option>
+        <option value="35">Comedy</option>
+        <option value="36">History</option>
+        <option value="37">Western</option>
+        <option value="53">Thriller</option>
+        <option value="80">Crime</option>
+        <option value="99">Documentary</option>
+        <option value="878">Science Fiction</option>
+        <option value="9648">Mystery</option>
+        <option value="10402">Music</option>
+        <option value="10749">Romance</option>
+        <option value="10751"Family</option>
+        <option value="10752">War</option>
+        <option value="10763">News</option>
+        <option value="10764">Reality</option>
+        <option value="10767">Talk Show</option>
         `;
         genreEl.innerHTML=genreList
     
@@ -194,6 +248,7 @@ if (genreEl)[
         var element=event.target
         if (element.matches ("option")){
             genreInput.value=element.textContent
+            genreInput.setAttribute('data-code', element.value)
         }
         genreEl.classList.add ("hide")
         genreEl.innerHTML=""
@@ -226,7 +281,12 @@ if (serviceButton){
        
         var serviceList= ""
         serviceList+= `
-        <option>Netflix</option>
+        <option value="netflix">Netflix</option>
+        <option value="disney">Disney+</option>
+        <option value="prime">Prime Video</option>
+        <option value="hulu">Hulu</option>
+        <option value="apple">Apple TV+</option>
+        <option value="hbo">HBO Max</option>
         `;
         serviceEl.innerHTML=serviceList
     
@@ -238,6 +298,7 @@ if (serviceEl){
         var element=event.target
         if (element.matches ("option")){
             serviceInput.value=element.textContent
+            serviceInput.setAttribute('data-code', element.value)
         }
         serviceEl.classList.add ("hide")
         serviceEl.innerHTML=""
