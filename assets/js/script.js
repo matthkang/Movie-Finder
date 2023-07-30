@@ -72,7 +72,7 @@ function fetchYoutubeData() {
 }
 
 var populateResults = function() {
-    var moviesArr = JSON.parse(localStorage.getItem("moviesHistory"));
+    var moviesArr = JSON.parse(localStorage.getItem("moviesHistory")) || [];
 
     $("#movieResults").empty();
     for (var i = 0; i < moviesArr.length; i++){
