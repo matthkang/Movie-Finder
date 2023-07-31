@@ -129,16 +129,17 @@ if (clearLanguageInput){
     });
 }
 
-var languageButton=document.querySelector ("#languageButton")
-var languageEl= document.querySelector("#languageListElements")
-if (languageButton){
-    languageButton.addEventListener ("click", function (event){
-        console.log ("click")
-        languageEl.classList.remove ("hide")
-        event.preventDefault ()
-       
-        var languageList= ""
-        languageList+= `
+var languageButton = document.querySelector("#languageButton");
+var languageEl = document.querySelector("#languageListElements");
+
+if (languageButton) {
+  languageButton.addEventListener("click", function (event) {
+    console.log("click");
+    languageEl.classList.toggle("hide"); // Toggle the visibility of the language list elements
+    event.preventDefault();
+
+    var languageList = "";
+    languageList += `
         <option value="ar">Arabic</option>
         <option value="zh">Chinese</option>
         <option value="cs">Czech</option>
@@ -200,16 +201,17 @@ if (clearGenreInput){
     });
 }
 
-var genreButton=document.querySelector ("#genreButton")
-var genreEl= document.querySelector("#genreListElements")
-if (genreButton){
-    genreButton.addEventListener ("click", function (event){
-        console.log ("click")
-        genreEl.classList.remove ("hide")
-        event.preventDefault ()
-       
-        var genreList= ""
-        genreList+= `
+var genreButton = document.querySelector("#genreButton");
+var genreEl = document.querySelector("#genreListElements");
+
+if (genreButton) {
+  genreButton.addEventListener("click", function (event) {
+    console.log("click");
+    genreEl.classList.toggle("hide"); // Toggle the visibility of the genre list elements
+    event.preventDefault();
+
+    var genreList = "";
+    genreList += `
         <option value="1">Biography</option>
         <option value="2">Film Noir</option>
         <option value="3">Game Show</option>
@@ -270,17 +272,17 @@ if (clearServiceInput){
 }
 
 
-var serviceButton=document.querySelector ("#serviceButton")
-var serviceEl= document.querySelector("#serviceListElements")
+var serviceButton = document.querySelector("#serviceButton");
+var serviceEl = document.querySelector("#serviceListElements");
 
-if (serviceButton){
-    serviceButton.addEventListener ("click", function (event){
-        console.log ("click")
-        serviceEl.classList.remove ("hide")
-        event.preventDefault ()
-       
-        var serviceList= ""
-        serviceList+= `
+if (serviceButton) {
+  serviceButton.addEventListener("click", function (event) {
+    console.log("click");
+    serviceEl.classList.toggle("hide"); // Toggle the visibility of the service list elements
+    event.preventDefault();
+
+    var serviceList = "";
+    serviceList += `
         <option value="netflix">Netflix</option>
         <option value="disney">Disney+</option>
         <option value="prime">Prime Video</option>
@@ -288,10 +290,10 @@ if (serviceButton){
         <option value="apple">Apple TV+</option>
         <option value="hbo">HBO Max</option>
         `;
-        serviceEl.innerHTML=serviceList
-    
-    });
+    serviceEl.innerHTML = serviceList;
+  });
 }
+
 
 if (serviceEl){
     serviceEl.addEventListener("click", function (event){
@@ -318,3 +320,4 @@ if (resultsHistory){
         
     })
 }
+
