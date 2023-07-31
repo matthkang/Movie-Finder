@@ -58,22 +58,28 @@ function fetchMovieData() {
     * https://developers.google.com/explorer-help/code-samples#javascript
     */
 
-function fetchYoutubeData() {
-    const keyword = "batman"
+function fetchYoutubeData(title) {
     const YOUTUBE_API_KEY = "AIzaSyC4D0ALMAzkDBW0LjsMJddRh-mTpyhkNYM";
-    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${keyword}&key=${YOUTUBE_API_KEY}`;
-    console.log(url);
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${title}&key=${YOUTUBE_API_KEY}`;
     fetch(url)
         .then(response => response.json())
-        .then(data => {
-            console.log(data.items[0].id.videoId);
-            document.querySelector(".youtubeVideo").src = `https://www.youtube.com/embed/${data.items[0].id.videoId}`;
+        .then((data) => {
+            const youtubeData = data.items.map(item => ({
+                id: item.id.videoId,
+            }));
+            localStorage.setItem("youtubeHistory", JSON.stringify(youtubeData));
+            console.log(youtubeData);
+            return youtubeData;
+        })
+
+        .catch((error) => {
+            console.error('Error fetching youtube data:', error);
         });
 }
 
 var populateResults = function() {
     var moviesArr = JSON.parse(localStorage.getItem("moviesHistory")) || [];
-
+    var youtubeArr = JSON.parse(localStorage.getItem("youtubeHistory")) || []; 
     $("#movieResults").empty();
     for (var i = 0; i < moviesArr.length; i++){
         var movieObj = moviesArr[i];
@@ -85,7 +91,7 @@ var populateResults = function() {
         var country = movieObj.country;
         var lang = movieObj.language;
         var desc = movieObj.description;
-
+        var trailer = (youtubeArr.find(items => items.snippet.title == title) || {}).id;
         var movie = $(`
             <div class="w-full dark:text-white movieData">
             <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600 movieImage">
@@ -100,7 +106,7 @@ var populateResults = function() {
 
             <p class="w-100 p-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"> <strong>Cast:</strong>  ${cast.join(', ')} </p>
 
-            <p class="w-24 p-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+            <a href="https://www.youtube.com/watch?v=${trailer}" class="w-24 p-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700 target=_blank">Watch Trailer</a>
 
             <p class=" mt-4  p-2 bg-gray-200 rounded-lg dark:bg-gray-700"><strong>Rating:</strong> Rated - ${rating} </p>
 
