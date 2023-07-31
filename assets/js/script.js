@@ -59,7 +59,7 @@ function fetchMovieData() {
     * See instructions for running APIs Explorer code samples locally:
     * https://developers.google.com/explorer-help/code-samples#javascript
     */
-/*
+
 function fetchYoutubeData(title) {
     const YOUTUBE_API_KEY = "AIzaSyC4D0ALMAzkDBW0LjsMJddRh-mTpyhkNYM";
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${title}&key=${YOUTUBE_API_KEY}`;
@@ -78,7 +78,7 @@ function fetchYoutubeData(title) {
         .catch((error) => {
             console.error('Error fetching youtube data:', error);
         });
-}*/
+}
 var populateResults = function () {
     var moviesArr = JSON.parse(localStorage.getItem("moviesHistory"));
     $("#movieResults").empty();
@@ -176,17 +176,43 @@ if (clearGenreInput) {
     });
 }
 
-var genreButton = document.querySelector("#genreButton")
-var genreEl = document.querySelector("#genreListElements")
-if (genreButton) {
-    genreButton.addEventListener("click", function (event) {
-        console.log("click")
-        genreEl.classList.remove("hide")
-        event.preventDefault()
-
-        var genreList = ""
-        genreList += `
-        <option>Romance</option>
+var genreButton=document.querySelector ("#genreButton")
+var genreEl= document.querySelector("#genreListElements")
+if (genreButton){
+    genreButton.addEventListener ("click", function (event){
+        console.log ("click")
+        genreEl.classList.remove ("hide")
+        event.preventDefault ()
+       
+        var genreList= ""
+        genreList+= `
+        <option value="1">Biography</option>
+        <option value="2">Film Noir</option>
+        <option value="3">Game Show</option>
+        <option value="4">Musical</option>
+        <option value="5">Sport</option>
+        <option value="6">Short</option>
+        <option value="12">Adventure</option>
+        <option value="14">Fantasy</option>
+        <option value="16">Animation</option>
+        <option value="18">Drama</option>
+        <option value="27">Horror</option>
+        <option value="28">Action</option>
+        <option value="35">Comedy</option>
+        <option value="36">History</option>
+        <option value="37">Western</option>
+        <option value="53">Thriller</option>
+        <option value="80">Crime</option>
+        <option value="99">Documentary</option>
+        <option value="878">Science Fiction</option>
+        <option value="9648">Mystery</option>
+        <option value="10402">Music</option>
+        <option value="10749">Romance</option>
+        <option value="10751"Family</option>
+        <option value="10752">War</option>
+        <option value="10763">News</option>
+        <option value="10764">Reality</option>
+        <option value="10767">Talk Show</option>
         `;
         genreEl.innerHTML = genreList
 
