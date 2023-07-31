@@ -308,11 +308,13 @@ if (serviceEl){
 
 var resultsHistory = document.getElementById('resultsHistory')
 
-resultsHistory.addEventListener('click', function (){
-    if (localStorage.getItem('moviesHistory')) {
-        document.location.replace("./results.html");
-    } else {
-        document.location.replace("./error.html");
-    }
-    
-})
+if (resultsHistory){
+    resultsHistory.addEventListener('click', function (){
+        if (localStorage.getItem('moviesHistory')) {
+            document.location.replace("./results.html");
+        } else {
+            document.location.replace("./error.html");
+        }
+        
+    })
+}
