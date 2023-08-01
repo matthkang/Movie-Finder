@@ -12,7 +12,7 @@ function fetchMovieData() {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'a041739bfbmsh77bc9ee6c6dcdb3p1bb6e7jsn89ca0a0962df',
+            'X-RapidAPI-Key': 'fedb295ac0mshcca34a17e8274e5p11d555jsn9bcdf1b21878',
             'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
         }
     };
@@ -22,7 +22,7 @@ function fetchMovieData() {
         .then(async (data) => {
             console.log(data);
             var movieData = [];
-            for (let i = 0; i < data.result.length; i++) {
+            for (let i = 0; i < 4; i++) {
                 const movie = data.result[i];
                 var videoId = await fetchYoutubeData(movie.title);
                 const movieInfo = {
@@ -47,6 +47,7 @@ function fetchMovieData() {
         }) 
         .then((data) => {
             document.location.replace("./results.html");
+            
             console.log(data);
         })
         .catch((error) => {
@@ -61,7 +62,7 @@ function fetchMovieData() {
 
 function fetchYoutubeData(title) {
     title += " trailer"
-    const YOUTUBE_API_KEY = "AIzaSyC4D0ALMAzkDBW0LjsMJddRh-mTpyhkNYM";
+    const YOUTUBE_API_KEY = "AIzaSyDTpzidn_nTtvheQSNrVsRvqhZx4YFny8g";
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${title}&key=${YOUTUBE_API_KEY}`;
     return fetch(url)
         .then(response => response.json())
@@ -71,7 +72,7 @@ function fetchYoutubeData(title) {
             }));
             localStorage.setItem("youtubeHistory", JSON.stringify(youtubeData));
             console.log(youtubeData);
-            return youtubeData;
+            return youtubeData[0].id;
         })
 
         .catch((error) => {
@@ -79,7 +80,6 @@ function fetchYoutubeData(title) {
         });
 }
 
-console.log(fetchYoutubeData("batman"));
 
 var populateResults = function() {
     var moviesArr = JSON.parse(localStorage.getItem("moviesHistory")) || [];
@@ -94,7 +94,7 @@ var populateResults = function() {
         var country = movieObj.country;
         var lang = movieObj.language;
         var desc = movieObj.description;
-        var videoId = movieObj.youtube[0].id;
+        var videoId = movieObj.youtube;
         
         var movie = $(`
             <div class="w-full dark:text-white movieData">
