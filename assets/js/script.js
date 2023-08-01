@@ -19,16 +19,17 @@ function fetchMovieData() {
 
     fetch(url, options)
         .then((response) => response.json())
-        .then((data) => {
+        .then(async (data) => {
             console.log(data);
             var movieData = [];
             for (let i = 0; i < data.result.length; i++) {
                 const movie = data.result[i];
+                var videoId = await fetchYoutubeData(movie.title);
                 const movieInfo = {
                     title: movie.title,
                     poster: movie.posterURLs,
                     overview: movie.overview,
-                    youtube: movie.youtubeTrailerVideoLink,
+                    youtube: videoId,
                     country: movie.countries,
                     language: movie.originalLanguage,
                     cast: movie.cast,
@@ -59,9 +60,10 @@ function fetchMovieData() {
     */
 
 function fetchYoutubeData(title) {
+    title += " trailer"
     const YOUTUBE_API_KEY = "AIzaSyC4D0ALMAzkDBW0LjsMJddRh-mTpyhkNYM";
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${title}&key=${YOUTUBE_API_KEY}`;
-    fetch(url)
+    return fetch(url)
         .then(response => response.json())
         .then((data) => {
             const youtubeData = data.items.map(item => ({
@@ -77,6 +79,8 @@ function fetchYoutubeData(title) {
         });
 }
 
+console.log(fetchYoutubeData("batman"));
+
 var populateResults = function() {
     var moviesArr = JSON.parse(localStorage.getItem("moviesHistory")) || [];
     $("#movieResults").empty();
@@ -90,6 +94,7 @@ var populateResults = function() {
         var country = movieObj.country;
         var lang = movieObj.language;
         var desc = movieObj.description;
+        var videoId = movieObj.youtube[0].id;
         
         var movie = $(`
             <div class="w-full dark:text-white movieData">
@@ -103,6 +108,10 @@ var populateResults = function() {
 
             <p class="w-100 p-2 h-24 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700  overflow-auto clamp-3"> <strong>Description:</strong> ${desc} </p>
 
+            <p class="w-100 p-2 h-10 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700  overflow-auto clamp-3">
+                <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank"><strong>Trailer:</strong> <u>Youtube Link</u></a>
+            </p>
+            
             <p class="w-100 p-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"> <strong>Cast:</strong>  ${cast.join(', ')} </p>
 
             <p class=" mt-4  p-2 bg-gray-200 rounded-lg dark:bg-gray-700"><strong>Rating:</strong> Rated - ${rating} </p>
