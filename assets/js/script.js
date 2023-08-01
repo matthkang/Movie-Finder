@@ -66,7 +66,7 @@ function fetchMovieData() {
 
 function fetchYoutubeData(title) {
     title += " trailer"
-    const YOUTUBE_API_KEY = "AIzaSyDTpzidn_nTtvheQSNrVsRvqhZx4YFny8g";
+    const YOUTUBE_API_KEY = "AIzaSyDsGHEH0s2ZTdXiTDOYcrPBBHYPHYu9e8w";
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${title}&key=${YOUTUBE_API_KEY}`;
     return fetch(url)
         .then(response => response.json())
@@ -76,7 +76,7 @@ function fetchYoutubeData(title) {
             }));
             localStorage.setItem("youtubeHistory", JSON.stringify(youtubeData));
             // console.log(youtubeData);
-            return youtubeData;
+            return youtubeData[0].id;
         })
 
         .catch((error) => {
@@ -84,14 +84,14 @@ function fetchYoutubeData(title) {
         });
 }
 
-console.log(fetchYoutubeData("batman"));
+// console.log(fetchYoutubeData("batman"));
 
 var populateResults = function() {
     var moviesArr = JSON.parse(localStorage.getItem("moviesHistory")) || [];
     $("#movieResults").empty();
     for (var i = 0; i < moviesArr.length; i++){
         var movieObj = moviesArr[i];
-        var imgUrl = movieObj.poster.original;
+        var imgUrl = movieObj.poster[342];
         var title = movieObj.title;
         var cast = movieObj.cast;
         //var services = movieObj.services;
@@ -99,13 +99,13 @@ var populateResults = function() {
         var country = movieObj.country;
         var lang = movieObj.language;
         var desc = movieObj.description;
-        var videoId = movieObj.youtube[0].id;
+        var videoId = movieObj.youtube;
         
         var movie = $(`
             <div class="w-full dark:text-white movieData">
             <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600 movieImage">
                 <img src="${imgUrl}" alt="Movie Poster"
-                class="h-full w-full object-cover rounded-lg">
+                class="h-full w-full object-fill rounded-lg">
             </div>
 
 
