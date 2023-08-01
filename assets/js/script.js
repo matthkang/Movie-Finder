@@ -6,13 +6,13 @@ var keyword = document.getElementById('keyword')
 
 
 function fetchMovieData() {
-    console.log("service: " + services.value + " genre: " + genre.value + " language: " + language.value + " keyword: " + keyword.value);
+    // console.log("service: " + services.value + " genre: " + genre.value + " language: " + language.value + " keyword: " + keyword.value);
     const url = `https://streaming-availability.p.rapidapi.com/v2/search/basic?country=us&services=${services.dataset.code}&output_language=en&show_type=movie&genre=${genre.dataset.code}&show_original_language=${language.dataset.code}&keyword=${keyword.value}`;
-    console.log(url);
+    // console.log(url);
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'fedb295ac0mshcca34a17e8274e5p11d555jsn9bcdf1b21878',
+            'X-RapidAPI-Key': 'a041739bfbmsh77bc9ee6c6dcdb3p1bb6e7jsn89ca0a0962df',
             'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
         }
     };
@@ -20,7 +20,12 @@ function fetchMovieData() {
     fetch(url, options)
         .then((response) => response.json())
         .then(async (data) => {
-            console.log(data);
+            // console.log(data);
+
+            if(data.result.length === 0) {
+                document.location.replace("./error2.html");
+            }
+
             var movieData = [];
             for (let i = 0; i < 4; i++) {
                 const movie = data.result[i];
@@ -37,18 +42,17 @@ function fetchMovieData() {
                     description: movie.overview,
                     services: movie.streamingInfo,
                 }
-                console.log(movieInfo);
+                // console.log(movieInfo);
                 movieData.push(movieInfo);
                 // Do other operations with the data here
             } 
             localStorage.setItem("moviesHistory", JSON.stringify(movieData));
-            console.log(movieData);
+            // console.log(movieData);
             return movieData;
         }) 
         .then((data) => {
             document.location.replace("./results.html");
-            
-            console.log(data);
+            // console.log(data);
         })
         .catch((error) => {
             console.error('Error fetching movie data:', error);
@@ -71,8 +75,8 @@ function fetchYoutubeData(title) {
                 id: item.id.videoId,
             }));
             localStorage.setItem("youtubeHistory", JSON.stringify(youtubeData));
-            console.log(youtubeData);
-            return youtubeData[0].id;
+            // console.log(youtubeData);
+            return youtubeData;
         })
 
         .catch((error) => {
@@ -80,6 +84,7 @@ function fetchYoutubeData(title) {
         });
 }
 
+console.log(fetchYoutubeData("batman"));
 
 var populateResults = function() {
     var moviesArr = JSON.parse(localStorage.getItem("moviesHistory")) || [];
@@ -94,7 +99,7 @@ var populateResults = function() {
         var country = movieObj.country;
         var lang = movieObj.language;
         var desc = movieObj.description;
-        var videoId = movieObj.youtube;
+        var videoId = movieObj.youtube[0].id;
         
         var movie = $(`
             <div class="w-full dark:text-white movieData">
@@ -135,7 +140,7 @@ var languageInput=document.querySelector ("#language")
 
 if (clearLanguageInput){
     clearLanguageInput.addEventListener("click", function(event){
-        console.log ("click")
+        // console.log ("click")
         event.preventDefault ()
         languageInput.value=""
     });
@@ -146,7 +151,7 @@ var languageEl = document.querySelector("#languageListElements");
 
 if (languageButton) {
   languageButton.addEventListener("click", function (event) {
-    console.log("click");
+    // console.log("click");
     languageEl.classList.toggle("hide"); // Toggle the visibility of the language list elements
     event.preventDefault();
 
@@ -193,7 +198,7 @@ if (languageEl){
         if (element.matches ("option")){
             languageInput.value=element.textContent
             languageInput.setAttribute('data-code', element.value)
-            console.log(document.getElementById('language').dataset.code)
+            // console.log(document.getElementById('language').dataset.code)
         }
         languageEl.classList.add ("hide")
         languageEl.innerHTML=""
@@ -207,7 +212,7 @@ var genreInput=document.querySelector ("#genre")
 
 if (clearGenreInput){
     clearGenreInput.addEventListener("click", function(event){
-        console.log ("click")
+        // console.log ("click")
         event.preventDefault ()
         genreInput.value=""
     });
@@ -218,7 +223,7 @@ var genreEl = document.querySelector("#genreListElements");
 
 if (genreButton) {
   genreButton.addEventListener("click", function (event) {
-    console.log("click");
+    // console.log("click");
     genreEl.classList.toggle("hide"); // Toggle the visibility of the genre list elements
     event.preventDefault();
 
@@ -277,7 +282,7 @@ var serviceInput=document.querySelector ("#service")
 
 if (clearServiceInput){
     clearServiceInput.addEventListener("click", function(event){
-        console.log ("click")
+        // console.log ("click")
         event.preventDefault ()
         serviceInput.value=""
     });
@@ -289,7 +294,7 @@ var serviceEl = document.querySelector("#serviceListElements");
 
 if (serviceButton) {
   serviceButton.addEventListener("click", function (event) {
-    console.log("click");
+    // console.log("click");
     serviceEl.classList.toggle("hide"); // Toggle the visibility of the service list elements
     event.preventDefault();
 
