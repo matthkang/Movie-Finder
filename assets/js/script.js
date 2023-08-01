@@ -79,7 +79,6 @@ function fetchYoutubeData(title) {
 
 var populateResults = function() {
     var moviesArr = JSON.parse(localStorage.getItem("moviesHistory")) || [];
-    var youtubeArr = JSON.parse(localStorage.getItem("youtubeHistory")) || []; 
     $("#movieResults").empty();
     for (var i = 0; i < moviesArr.length; i++){
         var movieObj = moviesArr[i];
@@ -91,7 +90,7 @@ var populateResults = function() {
         var country = movieObj.country;
         var lang = movieObj.language;
         var desc = movieObj.description;
-        var trailer = (youtubeArr.find(items => items.snippet.title == title) || {}).id;
+        
         var movie = $(`
             <div class="w-full dark:text-white movieData">
             <div class="w-full h-64 bg-gray-300 rounded-lg dark:bg-gray-600 movieImage">
@@ -105,8 +104,6 @@ var populateResults = function() {
             <p class="w-100 p-2 h-24 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700  overflow-auto clamp-3"> <strong>Description:</strong> ${desc} </p>
 
             <p class="w-100 p-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"> <strong>Cast:</strong>  ${cast.join(', ')} </p>
-
-            <a href="https://www.youtube.com/watch?v=${trailer}" class="w-24 p-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700 target=_blank">Watch Trailer</a>
 
             <p class=" mt-4  p-2 bg-gray-200 rounded-lg dark:bg-gray-700"><strong>Rating:</strong> Rated - ${rating} </p>
 
