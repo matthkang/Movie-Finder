@@ -21,7 +21,7 @@ The final product looks like this:
 
 Here is a link to the completed web application:
 
-https://cjfeagin33.github.io/Calendar-Application/
+https://matthkang.github.io/Movie-Finder/
 
 ## Credit
 
