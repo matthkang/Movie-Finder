@@ -15,7 +15,7 @@ This entire project was made in Visual Studio. We ended up using 4 different API
 
 The final product looks like this:
 
-<img src="/Movie-Finder/assets/images/Screenshot of Final Application.png">
+<img src="./assets/images/Screenshot of Final Application.png">
 
  This web application acts as a movie finder for the user. Users have the ability to search for content to watch using four different parameters. These parameters are a keyword, what streaming service you would like to watch on, what language you would like the movie to be, and the genre that you are interested in viewing. Users are then able to conduct a search that will result in 4 different movies being displayed for their choosing. Upon viewing the results, they will be greeted by the movies poster, a description of the movie, a link to the trailer on Youtube, the cast of the movie, what age the movie is rated for, as well as the language of the movie. Search results are saved and can be revisited at any time using the history book icon in the top right hand corner. Users also can navigate to our about us page, where we give a little info on our application, as well as use the GitHub API to link the application to our four different profiles. If you wish to return home at any time, simply click the Movie Finder logo in the top left hand corner to be redirected home. 
 
